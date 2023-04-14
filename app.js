@@ -8,9 +8,9 @@ app.use(express.json())
 app.use(cors())
 app.get('/', (req, res) => {res.send('Hello World!')})
 
-const DB_CONNECTION_STRING = process.env.DB_CONNECTION_STRING
+const RHYTHM_LOUNGE_DB_CONNECTION_STRING = process.env.RHYTHM_LOUNGE_DB_CONNECTION_STRING
     || "mongodb+srv://rhythm-lounge-admin:JnBEnX1uOlH34tOC@rhythm-lounge.8ugc16w.mongodb.net/?retryWrites=true&w=majority"
-mongoose.connect(DB_CONNECTION_STRING)
+mongoose.connect(RHYTHM_LOUNGE_DB_CONNECTION_STRING)
 
 EventController(app)
 UsersController(app)
