@@ -10,6 +10,7 @@ const createUser = async (req, res) => {
 
 const findUsers = async (req, res) => {
     const users = await usersDao.findUsers();
+    console.log(users)
     res.json(users);
 }
 
