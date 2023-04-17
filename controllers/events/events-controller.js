@@ -39,7 +39,9 @@ const findEventsById =  async(req,res) => {
 const updateEvents = async(req,res) => {
     const eidtoupdate = req.params.eid;
     const updates =  req.body;
-    const status = eventsDao.updateEvents(eidtoupdate,updates);
+    console.log("Server side")
+    console.log(updates)
+    const status = await eventsDao.updateEvents(eidtoupdate,updates);
     res.json(status)
 }
 export default EventController;
