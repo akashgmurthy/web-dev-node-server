@@ -8,5 +8,6 @@ const userSchema = mongoose.Schema({
     bannerColor: String,
     numEventsAttended: Number,
     numEventsHosted: Number,
+    isCreator: Boolean,
 }, {collection: 'users'});
 export default userSchema
