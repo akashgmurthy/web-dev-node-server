@@ -9,5 +9,6 @@ const userSchema = mongoose.Schema({
     numEventsAttended: Number,
     numEventsHosted: Number,
     isCreator: Boolean,
+    eventsAttending: [String]
 }, {collection: 'users'});
 export default userSchema

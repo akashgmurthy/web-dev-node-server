@@ -12,7 +12,8 @@ const events_schema = mongoose.Schema({
     createdAt: {
         type: Date,
         default:Date.now
-    }
+    },
+    createdBy:String
 }, {collection:'events'});
 
 export default events_schema
