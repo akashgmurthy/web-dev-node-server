@@ -1,6 +1,8 @@
 import usersModel from './users-model.js';
 export const findUsers = () =>
     usersModel.find();
+export const findUser = (uid) =>
+    usersModel.findOne({_id: uid});
 export const createUser = (user) =>
     usersModel.create(user);
 export const deleteUser = (uid) =>
