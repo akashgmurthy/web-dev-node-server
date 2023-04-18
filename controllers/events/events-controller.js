@@ -8,6 +8,7 @@ const upload = multer({ storage: storage });
 const EventController = (app) =>{
     app.get('/events',findEvents);
     app.get('/events/:eid',findEventsById)
+    app.get('/events/created/:eid',findEventsByCreatedId)
     app.post('/events',createEvents);
     app.delete('/events/:eid',deleteEvents)
     app.put('/events/:eid',updateEvents)
@@ -15,6 +16,12 @@ const EventController = (app) =>{
 const findEvents = async (req,res) => {
     const events = await eventsDao.findEvents()
     res.json(events)
+}
+
+export const findEventsByCreatedId = async (req,res) => {
+    const createdId = req.params.eid;
+    const status = await eventsDao.findEventsByCreatedId(createdId)
+    res.json(status)
 }
 
 const createEvents = async (req,res) => {
