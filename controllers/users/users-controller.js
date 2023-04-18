@@ -14,11 +14,17 @@ const findUsers = async (req, res) => {
     res.json(users);
 }
 
+const findUser = async (req, res) => {
+    const uid = req.params.uid;
+    const user = await usersDao.findUser(uid);
+    res.json(user)
+}
+
 const updateUser = async (req, res) => {
     const uid = req.params.uid;
     const updates = req.body;
     const status = await usersDao.updateUser(uid, updates)
-    res.sendStatus(status);
+    res.json(status);
 }
 
 const deleteUser = async (req, res) => {
@@ -30,6 +36,7 @@ const deleteUser = async (req, res) => {
 export default (app) => {
     app.post('/api/users', createUser);
     app.get('/api/users', findUsers);
+    app.get('/api/users/:uid', findUser);
     app.put('/api/users/:uid', updateUser);
     app.delete('/api/users/:uid', deleteUser);
 }
